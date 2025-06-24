@@ -108,6 +108,7 @@ all: dkms/config.h
 	$(MAKE) -C $(SRC_PATH)/gim-coms-lib
 	$(MAKE) -C $(KERNELDIR) M=$(SRC_PATH) modules
 	$(MAKE) -C $(SRC_PATH)/smi-lib default
+	$(MAKE) -C $(SRC_PATH)/smi-lib/cli/cpp
 
 install: dkms/config.h
 	$(MAKE) -C $(KERNELDIR) M=$(SRC_PATH) modules_install
@@ -120,6 +121,7 @@ clean:
 	$(MAKE) -C $(SRC_PATH)/gim-coms-lib clean
 	$(MAKE) -C $(KERNELDIR) M=$(SRC_PATH) clean
 	$(MAKE) -C $(SRC_PATH)/smi-lib clean
+	$(MAKE) -C $(SRC_PATH)/smi-lib/cli/cpp clean
 	rm -f $(SRC_PATH)/libgv/VERSION
 
 .PHONY: all install clean

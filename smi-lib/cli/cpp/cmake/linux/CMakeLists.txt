@@ -78,8 +78,3 @@ target_link_libraries(${TARGET} pthread)
 target_link_libraries(${TARGET} stdc++fs)
 target_link_libraries(${TARGET} ${CMAKE_DL_LIBS})
 
-add_custom_command(
-  TARGET amd-smi
-  POST_BUILD
-  COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:amd-smi>
-          ${CMAKE_SOURCE_DIR}/../../tool/amd-smi)
