@@ -275,7 +275,10 @@ AmdSmiApiHost::AmdSmiApiHost()
 #elif __linux__
 	amdSmiLibHandle = dlopen("/usr/lib/libamdsmi.so", RTLD_NOW | RTLD_GLOBAL);
 	if (amdSmiLibHandle == NULL) {
-		amdSmiLibHandle = dlopen("./libamdsmi.so", RTLD_NOW | RTLD_GLOBAL);
+		amdSmiLibHandle = dlopen("/usr/lib64/libamdsmi.so", RTLD_NOW | RTLD_GLOBAL);
+		if (amdSmiLibHandle == NULL) {
+			amdSmiLibHandle = dlopen("./libamdsmi.so", RTLD_NOW | RTLD_GLOBAL);
+		}
 	}
 #endif
 	if (amdSmiLibHandle == NULL) {
